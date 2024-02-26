@@ -1,22 +1,26 @@
---// Made By Fedarel
-
-do
-	local Aux = Instance.new("BindableFunction")
+local scriptText = [==[
+    local PromptFunction = Instance.new("BindableFunction")
     
-	Aux.OnInvoke = function(Answer)
-		if Answer == "No" then
-			return
-		end
+    PromptFunction.OnInvoke = function(response)
+        if response == "No" then
+            return
+        end
+        
+        print("Notification: MacSploit Is Working!")
+    end
 
-	print 'MacSploit Is Working!'
-	end
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Test Script Prompt",
+        Text = "MacSploit is Working",
+        Button1 = "Continue",
+        Duration = math.huge,
+        Icon = "rbxassetid://6238537240",
+        Callback = PromptFunction
+    })
+]==]
 
-	game.StarterGui:SetCore("SendNotification", {
-		Title = "Test Script Prompt",
-		Text = "MacSploit is Working",
-		Button1 = "Continue",
-		Duration = 1 / 0,
-		Icon = "rbxassetid://6238537240",
-		Callback = Aux
-	})
+local function executeScript(script)
+    loadstring(script)() -- Execute the script
 end
+
+executeScript(scriptText)
