@@ -9,7 +9,7 @@ end
 
 local utc_date, est_date = getCurrentDate()
 
-local text = "Test Script is currently working on " .. est_date
+local text = "MacSploit is currently working on " .. est_date
 
 local PromptFunction = Instance.new("BindableFunction")
 
